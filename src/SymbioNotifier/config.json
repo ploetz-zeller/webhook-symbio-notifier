@@ -1,0 +1,7 @@
+{
+  "AzureAd": {
+    "ClientId": "<client-id-guid>",
+    "AadInstance": "https://login.microsoftonline.com/<tenant-id-guid>/",
+    "PostLogoutRedirectUri": "https://localhost:44353/"
+  }
+}
