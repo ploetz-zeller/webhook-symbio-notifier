@@ -1,0 +1,46 @@
+﻿@model SymbioNotifier.Models.IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row">
+    <div class="col-md-6">
+        <h2>Application Use</h2>
+        <p>
+            Login to Symbio Notifier and manage your notification subscriptions.
+        </p>
+    </div>
+    <div class="col-md-6">
+        <h2>Manage Notification Subscriptions</h2>
+        @if (Model != null)
+        {
+            @if (Model.IsSubscribed)
+            {
+                <p>
+                    You are subscribed, currently.
+                    @Html.ActionLink("Unsubscribe", "Unsubscribe")
+                </p>
+            }
+            else
+            {
+                <p>
+                    You are not subscribed, currently.
+                    @Html.ActionLink("Subscribe", "Subscribe")
+                </p>
+            }
+
+            <h3>Received Messages</h3>
+            <div>
+                @foreach (var message in Model.Messages)
+                {
+                    <p>@message</p>
+                }
+            </div>
+        }
+        else
+        {
+            <p>
+                You are not logged in.
+            </p>
+        }
+    </div>
+</div>
